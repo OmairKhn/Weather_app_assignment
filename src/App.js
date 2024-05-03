@@ -13,8 +13,11 @@ const { Content } = Layout;
 
 const App = () => {
   return (
-    <HashRouter>
-      <Layout style={{ minHeight: '100vh' }}>
+    //  i use HashRouter instead of Router because when
+    //   i upload it on github pages which is free hosting platform 
+    //   then the routes does not work properly so that why i replace itRouter>
+     <HashRouter>
+     <Layout style={{ minHeight: '100vh' }}>
         <Sidebar />
         <Layout>
           <HeaderComponent />
