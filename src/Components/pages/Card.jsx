@@ -9,7 +9,6 @@ import snow_icon from '../Assets/snow.png';
 import wind_icon from '../Assets/wind.png';
 import humidity_icon from '../Assets/humidity.png';
 
-const { Search } = Input;
 
 const Card = ({Location}) => {
   const api_key = '7f05046ed46d6dfc1a85889fefa69e06';
@@ -22,20 +21,17 @@ const Card = ({Location}) => {
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
-    search('Islamabad'); // Fetch weather data for Islamabad when component mounts
+    search(); // Fetch weather data for Islamabad when component mounts
   }, []);
 
-  const search = async (location) => {
+  const search = async () => {
     setLoading(true);
     try {
       let url = `https://api.openweathermap.org/data/2.5/weather?q=${Location}&units=Metric&appid=${api_key}`;
       let response = await fetch(url);
       let data = await response.json();
 
-      if (data.cod === '404') {
-        setErrorMessage('Location not found');
-        return;
-      }
+    
 
       setErrorMessage('');
       setHumidity(`${data.main.humidity}%`);
@@ -110,11 +106,7 @@ const Card = ({Location}) => {
             </div>
           </div>
         </div>
-        {errorMessage && (
-  <div style={{ color: '', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-    {errorMessage}
-  </div>
-)}
+   
 
       </div>
     </div>

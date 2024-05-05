@@ -9,7 +9,6 @@ import snow_icon from '../Assets/snow.png';
 import wind_icon from '../Assets/wind.png';
 import humidity_icon from '../Assets/humidity.png';
 
-const { Search } = Input;
 
 const SearchComponent = () => {
   const api_key = '7f05046ed46d6dfc1a85889fefa69e06';
