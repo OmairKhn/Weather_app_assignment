@@ -37,6 +37,8 @@ const SearchComponent = () => {
         setErrorMessage('Location not found');
         return;
       }
+
+
   
       setErrorMessage('');
       setHumidity(`${data.main.humidity}%`);
