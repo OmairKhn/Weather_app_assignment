@@ -17,7 +17,7 @@ const App = () => {
 
  
   return (
-    <Router>
+    <HashRouter>
       <Layout style={{ minHeight: '100vh' }}>
         {/* Sidebar */}
         <Sidebar  />
@@ -37,7 +37,7 @@ const App = () => {
           <FooterComponent />
         </Layout>
       </Layout>
-    </Router>
+    </HashRouter>
   );
 };
 

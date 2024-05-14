@@ -8,6 +8,10 @@ import rain_icon from '../Assets/rain.png';
 import snow_icon from '../Assets/snow.png';
 import wind_icon from '../Assets/wind.png';
 import humidity_icon from '../Assets/humidity.png';
+import Nightclear from '../Assets/Nightclear.png'
+import Nightmist from '../Assets/Nightmist.png';
+import Nightclouds from '../Assets/Nightclouds.png';
+import Heaveyrain from '../Assets/Heaveyrain.png';
 
 
 const Card = ({Location}) => {
@@ -38,45 +42,55 @@ const Card = ({Location}) => {
       setWind(`${data.wind.speed} Km/h`);
       setTemperature(`${data.main.temp}°C`);
       setLocationName(data.name);
-
       switch (data.weather[0].icon) {
         case '01d':
-        case '01n':
           setWicon(clear_icon);
           break;
+          case '01n':
+            setWicon(Nightclear);
+            break;
         case '02d':
-        case '02n':
           setWicon(cloud_icon);
           break;
+          case '02n':
+            setWicon(Nightclouds);
+            break;
         case '03d':
-        case '03n':
           setWicon(drizzle_icon);
           break;
+          case '03n':
+            setWicon(Heaveyrain);
+            break;
         case '04d':
-        case '04n':
           setWicon(drizzle_icon);
           break;
-        case '09d':
-        case '09n':
+          case '04n':
+            setWicon(Nightclouds);
+            break;
+        case '09d': 
         case '010d':
-        case '010n':
           setWicon(rain_icon);
+          break;
+          case '09n':
+          case '010n':
+          setWicon(Heaveyrain);
           break;
         case '013d':
         case '013n':
           setWicon(snow_icon);
           break;
+          case '50n':
+            setWicon(Nightmist);
+            break;
         default:
-          setWicon(clear_icon);
+          setWicon(Heaveyrain);
       }
     } catch (error) {
       console.error('Error fetching weather data:', error);
-      setErrorMessage('Error fetching weather data');
     } finally {
       setLoading(false);
     }
   };
-
   return (
     <div className='maindiv1'>
       <div className="container1">
